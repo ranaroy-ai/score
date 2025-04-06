@@ -6,25 +6,25 @@ on:
     branches:
       - build_v1
 jobs:
-  register-environment:
-      uses: ranaroy-ai/score/.github/workflows/register-environment.yml@build_v1
-      with:
-        resource_group: score-inference-group
-        workspace_name: aml-fraud-dev
-        environment_file:  deploy/deploy-env.yml
-        conda_file: deploy/conda.yml
-      secrets:
-          creds: ${{secrets.AZURE_CREDENTIALS}}
-  # create-endpoint:
-  #     uses: ranaroy-ai/score/.github/workflows/create-endpoint.yml@bild_v1
+  # register-environment:
+  #     uses: ranaroy-ai/score/.github/workflows/register-environment.yml@build_v1
   #     with:
   #       resource_group: score-inference-group
   #       workspace_name: aml-fraud-dev
-  #       endpoint_file: deploy/online-endpoint.yml
-  #       endpoint_name: test-scoring-online
-  #       endpoint_type: online
+  #       environment_file:  deploy/deploy-env.yml
+  #       conda_file: deploy/conda.yml
   #     secrets:
-  #       creds: ${{secrets.AZURE_CREDENTIALS}}
+  #         creds: ${{secrets.AZURE_CREDENTIALS}}
+  create-endpoint:
+      uses: ranaroy-ai/score/.github/workflows/create-endpoint.yml@bild_v1
+      with:
+        resource_group: score-inference-group
+        workspace_name: aml-fraud-dev
+        endpoint_file: deploy/online-endpoint.yml
+        endpoint_name: test-scoring-online
+        endpoint_type: online
+      secrets:
+        creds: ${{secrets.AZURE_CREDENTIALS}}
         
   # create-deployment:
   #     uses: ranaroy-ai/score/.github/workflows/crete-deployment.yml@main
