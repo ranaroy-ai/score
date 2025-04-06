@@ -21,7 +21,7 @@ jobs:
         resource_group: score-inference-group
         workspace_name: aml-fraud-dev
         endpoint_file: deploy/online-endpoint.yml
-        endpoint_name: test-scoring-online
+        endpoint_name: roy-test-scoring-endpoint
         endpoint_type: online
       secrets:
         creds: ${{secrets.AZURE_CREDENTIALS}}
@@ -32,9 +32,9 @@ jobs:
   #       resource_group: score-inference-group
   #       workspace_name: aml-fraud-dev
   #       endpoint_file: deploy/online-deployment.yml
-  #       endpoint_name: test-scoring-online
+  #       endpoint_name: roy-test-scoring-endpoint
   #       endpoint_type: online
-  #       deployment_name: testing-online-deployment
+  #       deployment_name: roy-testing-online-deployment
   #     secrets:
   #       creds: ${{secrets.AZURE_CREDENTIALS}}
   # allocate-traffic:
@@ -42,7 +42,7 @@ jobs:
   #     with:
   #       resource_group: score-inference-group
   #       workspace_name: aml-fraud-dev
-  #       traffic_allocation: testing-online-deployment=100
-  #       endpoint_name: test-scoring-online
+  #       traffic_allocation: roy-testing-online-deployment=100
+  #       endpoint_name: roy-test-scoring-endpoint
   #     secrets:
   #       creds: ${{secrets.AZURE_CREDENTIALS}}
