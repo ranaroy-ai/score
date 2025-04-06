@@ -3,7 +3,8 @@ import logging
 import json
 import numpy
 import joblib
-
+from azure.identity import DefaultAzureCredential
+from azure.keyvault.secrets import SecretClient
 
 def init():
     """
@@ -11,6 +12,17 @@ def init():
     You can write the logic here to perform init operations like caching the model in memory
     """
     global model
+    KEY_VAULT_URL = "https://kv-amlfrauddev.vault.azure.net/"
+
+    # Replace with your secret name
+    SECRET_NAME = "ContainerName"
+    credential = DefaultAzureCredential()
+    client = SecretClient(vault_url=KEY_VAULT_URL, credential=credential)
+    logging.error(f">>>>>>>>>>>>>>>>>>>>>>>>>>> {credential}")
+    # Retrieve the secret
+    secret = client.get_secret(SECRET_NAME)
+    logging.info("Init complete")
+    logging.error(f">>>>>>>>>>>>>>>>>>>>>>>>>>> {secret}")
     # # AZUREML_MODEL_DIR is an environment variable created during deployment.
     # # It is the path to the model folder (./azureml-models/$MODEL_NAME/$VERSION)
     # # Please provide your model's folder name if there is one
