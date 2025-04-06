@@ -27,7 +27,7 @@ jobs:
   #       creds: ${{secrets.AZURE_CREDENTIALS}}
         
   # create-deployment:
-  #     uses: ranaroy-ai/score/.github/workflows/create-deployment.yml@main
+  #     uses: ranaroy-ai/score/.github/workflows/crete-deployment.yml@main
   #     with:
   #       resource_group: score-inference-group
   #       workspace_name: aml-fraud-dev
