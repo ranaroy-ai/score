@@ -10,7 +10,7 @@ jobs:
       uses: ranaroy-ai/.github/workflows/register-environment.yml@build_v1
       with:
         resource_group: score-inference-group
-        workspace_name: aml-fraud-dev     
+        workspace_name: aml-fraud-dev
         environment_file:  deploy/deploy-env.yml
         conda_file: deploy/conda.yml
       secrets:
