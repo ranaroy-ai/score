@@ -7,7 +7,7 @@ dependencies:
   - pip=23.0.1
   - scikit-learn==1.5.2
   - scipy==1.14.1
-  - Wekzeug==2.2.2
+  - Werkzeug==2.2.2
   - pandas==1.3.5
   - psutil==6.0.0
   - pip:
@@ -15,7 +15,7 @@ dependencies:
       - azureml-mlflow
       - inference-schema[nmpy-support]==1.7
       - joblib==1.2.0
-      - Wekzeug==2.2.2
+      - Werkzeug==2.2.2
       - mlflow==2.16.2
       - azure-keyvault-secrets
       - azure-identity
