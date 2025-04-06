@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - build_v1
+      
 jobs:
   # register-environment:
   #     uses: ranaroy-ai/score/.github/workflows/register-environment.yml@build_v1
