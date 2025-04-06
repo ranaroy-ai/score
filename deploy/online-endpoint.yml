@@ -1,4 +1,4 @@
 $schema: https://azuremlschemas.azureedge.net/latest/managedOnlineEndpoint.schema.json
-name: test-scoring-nline
+name: roy-test-scoring-endpoint
 description: fraud calculation onlne endpoint
 auth_mode: key
