@@ -1,0 +1,11 @@
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+name: testing-online-deployment
+endpoint_name: test-scoring-online
+model: azureml:Register_Stub_model@latest
+instance_type: Standard_E2s_v3
+instance_count: 1
+code_configuration:
+  code: .
+  scoring_script: score.py
+environment: azureml:suspicious-env@latest
+app_insights_enabled: true
