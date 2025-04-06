@@ -16,7 +16,7 @@ jobs:
   #     secrets:
   #         creds: ${{secrets.AZURE_CREDENTIALS}}
   create-endpoint:
-      uses: ranaroy-ai/score/.github/workflows/create-endpoint.yml@bild_v1
+      uses: ranaroy-ai/score/.github/workflows/create-endpoint.yml@build_v1
       with:
         resource_group: score-inference-group
         workspace_name: aml-fraud-dev
