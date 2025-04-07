@@ -38,7 +38,7 @@ jobs:
   #     secrets:
   #       creds: ${{secrets.AZURE_CREDENTIALS}}
   allocate-traffic:
-      uses: ranaroy-ai/score/.github/workflows/allocate-traffic.yml@main
+      uses: ranaroy-ai/score/.github/workflows/allocate-traffic.yml@build_v1
       with:
         resource_group: score-inference-group
         workspace_name: aml-fraud-dev
