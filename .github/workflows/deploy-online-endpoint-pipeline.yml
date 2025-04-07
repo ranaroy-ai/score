@@ -1,10 +1,10 @@
 name: deploy-online-endpoint-pipeline
 
 on: 
-  #workflow_dispatch:
-  push:
-    branches:
-      - build_v1   
+  workflow_dispatch:
+  # push:
+  #   branches:
+  #     - build_v1   
 jobs:
   # register-environment:
   #     uses: ranaroy-ai/score/.github/workflows/register-environment.yml@build_v1
@@ -26,23 +26,23 @@ jobs:
   #     secrets:
   #       creds: ${{secrets.AZURE_CREDENTIALS}}
         
-  # create-deployment:
-  #     uses: ranaroy-ai/score/.github/workflows/crete-deployment.yml@build_v1
-  #     with:
-  #       resource_group: score-inference-group
-  #       workspace_name: aml-fraud-dev
-  #       endpoint_file: deploy/online-deployment.yml
-  #       endpoint_name: roy-test-scoring-endpoint
-  #       endpoint_type: online
-  #       deployment_name: roy-testing-online-deployment
-  #     secrets:
-  #       creds: ${{secrets.AZURE_CREDENTIALS}}
-  allocate-traffic:
-      uses: ranaroy-ai/score/.github/workflows/allow-traffic.yml@build_v1
+  create-deployment:
+      uses: ranaroy-ai/score/.github/workflows/crete-deployment.yml@build_v1
       with:
         resource_group: score-inference-group
         workspace_name: aml-fraud-dev
-        traffic_allocation: roy-testing-online-deployment=100
+        endpoint_file: deploy/online-deployment.yml
         endpoint_name: roy-test-scoring-endpoint
+        endpoint_type: online
+        deployment_name: roy-testing-online-deployment
       secrets:
         creds: ${{secrets.AZURE_CREDENTIALS}}
+  # allocate-traffic:
+  #     uses: ranaroy-ai/score/.github/workflows/allow-traffic.yml@build_v1
+  #     with:
+  #       resource_group: score-inference-group
+  #       workspace_name: aml-fraud-dev
+  #       traffic_allocation: roy-testing-online-deployment=100
+  #       endpoint_name: roy-test-scoring-endpoint
+  #     secrets:
+  #       creds: ${{secrets.AZURE_CREDENTIALS}}
