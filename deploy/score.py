@@ -3,8 +3,10 @@ import logging
 import json
 import numpy
 import joblib
+import mlflow
 from azure.identity import DefaultAzureCredential
 from azure.keyvault.secrets import SecretClient
+from azureml.core.authentication import ServicePrincipalAuthetication
 
 def init():
     """
@@ -37,11 +39,30 @@ def init():
     ab = os.getenv("AZURE_TENANT_ID")
     bc = os.getenv("AZURE_CLIENT_ID")
     cd= os.getenv("AZURE_CLIENT_SECRET")
+    subs_id =os.getenv("AZURE_SUBSCRIPTION_ID")
     logging.error(f">>>>>>>>>>>>>>>>>>>>>>>>>>> {ab}")
     logging.error(f">>>>>>>>>>>>>>>>>>>>>>>>>>> {bc}")
     logging.error(f">>>>>>>>>>>>>>>>>>>>>>>>>>> {cd}")
     logging.info("Init complete")
     logging.error(f">>>>>>>>>>>>>>>>>>>>>>>>>>> {secret_value}")
+    
+    # Authenticate with Service Principal
+    sp_auth = ServicePrincipalAuthentication(
+        tenant_id=ab,
+        service_principal_id=bc,
+        service_principal_password=cd
+    )
+    
+    # Load the workspace
+    ws = Workspace(
+        subscription_id=subs_id,
+        resource_group="score-inference-group",
+        workspace_name="aml-fraud-dev",
+        auth=sp_auth
+    )
+    ml_uri = ws.get_mlflow_tracking_uri()
+    mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
+    logging.error(f"????????????????????????????????{ml_uri}")
     # # AZUREML_MODEL_DIR is an environment variable created during deployment.
     # # It is the path to the model folder (./azureml-models/$MODEL_NAME/$VERSION)
     # Please provide your model's folder name if there is one
