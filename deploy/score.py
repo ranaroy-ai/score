@@ -81,9 +81,9 @@ def run(raw_data):
     In the example we extract the data from the json input and call the scikit-learn model's predict()
     method and return the result back
     """
-    # logging.info("model 1: request received")
-    # data = json.loads(raw_data)["data"]
-    # data = numpy.array(data)
-    # result = model.predict(data)
-    # logging.info("Request processed")
-    # return result.tolist()
+    logging.info("model 1: request received")
+    data = json.loads(raw_data)["data"]
+    data = numpy.array(data)
+    result = model.predict(data)
+    logging.info("Request processed")
+    return result.tolist()
