@@ -34,9 +34,9 @@ def init():
     os.environ["AZURE_CLIENT_ID"] = secret_client_id_value
     os.environ["AZURE_CLIENT_SECRET"] = secret_client_sec_value
     os.environ["AZURE_SUBSCRIPTION_ID"] = secret_subscription_value
-    ab = os.getenv(AZURE_TENANT_ID)
-    bc = os.getenv(AZURE_CLIENT_ID)
-    cd= os.getenv(AZURE_CLIENT_SECRET)
+    ab = os.getenv("AZURE_TENANT_ID")
+    bc = os.getenv("AZURE_CLIENT_ID")
+    cd= os.getenv("AZURE_CLIENT_SECRET")
     logging.error(f">>>>>>>>>>>>>>>>>>>>>>>>>>> {ab}")
     logging.error(f">>>>>>>>>>>>>>>>>>>>>>>>>>> {bc}")
     logging.error(f">>>>>>>>>>>>>>>>>>>>>>>>>>> {cd}")
