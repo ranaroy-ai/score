@@ -6,7 +6,8 @@ import joblib
 import mlflow
 from azure.identity import DefaultAzureCredential
 from azure.keyvault.secrets import SecretClient
-from azureml.core.authentication import ServicePrincipalAuthetication
+from azureml.core import Workspace
+from azureml.core.authentication import ServicePrincipalAuthentication
 
 def init():
     """
